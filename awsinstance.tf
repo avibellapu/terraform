@@ -15,7 +15,7 @@ connection {
    host     = self.ip
 }
 
- provisioner "remote-exec" {
+provisioner "remote-exec" {
     inline = [
       "sudo amazon-linux-extras enable nginx1.12",
       "sudo yum -y install nginx",
