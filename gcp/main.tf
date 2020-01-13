@@ -21,4 +21,26 @@ resource "google_compute_instance" "vm_instance" {
     access_config {
     }
   }
+
+#  provisioner "remote-exec" {
+#    # Installing Git CLI on the GCE
+#    inline = [
+#      "sudo apt update"
+#      "sudo apt install git"
+#    ]
+#  }
+#
+#  provisioner "remote-exec" {
+#    # Clone FlaskApp from Git
+#    command = "git clone https://github.com/avibellapu/web-python.git"
+#  }
+
+  provisioner "remote-exec" {
+    command = "mkdir /home/test/python"
+  }
+
+  provisioner "file" {
+    source = "web.py"
+    destination = "/home/test/python"
+  }
 }
